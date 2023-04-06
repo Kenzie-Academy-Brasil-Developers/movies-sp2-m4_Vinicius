@@ -84,8 +84,6 @@ export const editMovie = async (
 
   const queryResult: QueryResult = await client.query(queryConfig);
 
-  console.log(queryResult);
-
   return response.status(200).json(queryResult.rows[0]);
 };
 
@@ -105,8 +103,6 @@ export const deleteMovie = async (
     text: queryString,
     values: [id],
   };
-
-  console.log(queryConfig);
 
   const queryResult: QueryResult = await client.query(queryConfig);
 

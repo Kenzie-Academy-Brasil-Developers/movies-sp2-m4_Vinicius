@@ -4,27 +4,27 @@ SELECT * FROM movies;
 
 /* Captura os filmes pelo ID. */
 
-SELECT * FROM movies WHERE id = $1;
+SELECT * FROM movies WHERE id = 1;
 
 /* Adiciona filmes. */
 
 INSERT INTO movies
-  (%I)
+  "name", "category", "duration", "price"
 VALUES
-  (%L)
+  'Divertidamente', 'Animação', 120, 35
 RETURNING *;
 
 /* Atualiza um filme. (Precisa do ID) */
 
 UPDATE movies
   SET 
-    (%I) = ROW(%L)
+    "name" = 'Divertidamente 2'
   WHERE 
-    id = $1
+    id = 1
 RETURNING *;
 
 /* Deleta um filme. (Precisa de ID) */
 
 DELETE FROM movies
   WHERE
-    id = $1;
+    id = 1;
